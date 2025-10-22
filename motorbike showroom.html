@@ -1,0 +1,259 @@
+
+257 lines (225 loc) · 9.32 KB
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Practice Exercises</title>
+    <!-- We'll use Tailwind for basic layout and fonts, but write custom CSS for the exercises -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Using Inter font as a nice default */
+        body {
+            font-family: "Inter", sans-serif;
+            padding: 2rem;
+        }
+
+        /* 1. Styling a Page Header */
+        h1 {
+            color: red;
+            text-align: center;
+            font-family: Arial, sans-serif; /* Overrides body font for this element */
+        }
+
+        /* 2. Creating a Highlight Class */
+        .highlight {
+            font-weight: bold;
+            background-color: yellow;
+            font-size: 20px;
+        }
+
+        /* 3. Box Model Practice */
+        .box-model {
+            margin: 20px;
+            padding: 10px;
+            border: 2px solid black;
+            background-color: #f0f0f0; /* Added background to see padding */
+        }
+
+        /* 4. Responsive Design */
+        @media (max-width: 600px) {
+            body {
+                background-color: lightblue;
+            }
+        }
+
+        /* 5. Background Image */
+        .banner {
+            width: 100%;
+            height: 200px;
+            /* Using a placeholder image */
+            background-image: url('https://placehold.co/800x200/333/fff?text=Banner+Image');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            border-radius: 8px; /* Added for aesthetics */
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        /* 6. Transition Effect */
+        .transition-button {
+            background-color: #3b82f6; /* Blue */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            /* This is the transition property */
+            transition: background-color 0.5s ease;
+        }
+
+        .transition-button:hover {
+            background-color: #22c55e; /* Green */
+        }
+
+        /* 7. Absolute vs Relative Positioning */
+        .relative-container {
+            position: relative;
+            height: 150px;
+            background-color: #e0e0e0;
+            border: 1px dashed #999;
+            border-radius: 8px;
+        }
+
+        .absolute-child {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 100px;
+            height: 100px;
+            background-color: #fca5a5; /* Light red */
+            border: 1px solid #dc2626; /* Red */
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .standard-div {
+            background-color: #bfdbfe; /* Light blue */
+            border: 1px solid #3b82f6; /* Blue */
+            border-radius: 8px;
+            padding: 10px;
+            margin-top: 10px;
+        }
+
+        /* 8. Using Different CSS Units */
+        .units-container {
+            font-size: 16px; /* Parent font size */
+            border: 1px solid #ccc;
+            padding: 1rem;
+            border-radius: 8px;
+        }
+
+        .units-container-large {
+            font-size: 24px; /* Larger parent font size */
+            border: 1px solid #ccc;
+            padding: 1rem;
+            margin-top: 1rem;
+            border-radius: 8px;
+        }
+
+        .px-text { font-size: 16px; } /* Fixed size */
+        .em-text { font-size: 1.2em; } /* 1.2 * parent font-size */
+        .rem-text { font-size: 1.2rem; } /* 1.2 * root (<html>) font-size */
+
+        /* 9. Grid or Flex Layout (Using Flexbox) */
+        .flex-container {
+            display: flex;
+            gap: 20px; /* Space between columns */
+            border: 1px solid #16a34a; /* Green border */
+            padding: 1rem;
+            border-radius: 8px;
+        }
+
+        .flex-column {
+            flex: 1; /* Each column takes up equal space */
+            background-color: #dcfce7; /* Light green */
+            padding: 1rem;
+            border-radius: 8px;
+        }
+
+        /* 10. Color Formats */
+        .color-rgb { color: rgb(255, 0, 0); }
+        .color-hex { color: #00ff00; }
+        .color-hsl { color: hsl(240, 100%, 50%); }
+
+    </style>
+</head>
+<body class="bg-white text-gray-900">
+
+    <div class="max-w-4xl mx-auto p-4 space-y-8">
+
+        <!-- 1. Styling a Page Header -->
+        <section>
+            <h1>This is the Main Header</h1>
+            <p class="text-center text-gray-600">The <code>&lt;h1&gt;</code> above is styled with Arial, red text, and is centered.</p>
+        </section>
+
+        <!-- 2. Creating a Highlight Class -->
+        <section>
+            <h2 class="text-2xl font-bold mb-2">2. Highlight Class</h2>
+            <p>This is a regular paragraph. <span class="highlight">This text has the .highlight class</span> applied to it, making it bold, yellow, and 20px.</p>
+        </section>
+
+        <!-- 3. Box Model Practice -->
+        <section>
+            <h2 class="text-2xl font-bold mb-2">3. Box Model</h2>
+            <div class="box-model">
+                This div has a 20px margin, 10px padding, and a 2px solid black border.
+            </div>
+        </section>
+
+        <!-- 4. Responsive Design -->
+        <section>
+            <h2 class="text-2xl font-bold mb-2">4. Responsive Design</h2>
+            <p>Resize your browser window. When the width is <strong>less than 600px</strong>, the page background will turn light blue.</p>
+        </section>
+
+        <!-- 5. Background Image -->
+        <section>
+            <h2 class="text-2xl font-bold mb-2">5. Background Image</h2>
+            <div class="banner">
+                <!-- Text is from placeholder, but you could add text here -->
+            </div>
+            <p class="mt-2 text-gray-600">The div above has a background image set to 'cover' and 'no-repeat'.</p>
+        </section>
+
+        <!-- 6. Transition Effect -->
+        <section>
+            <h2 class="text-2xl font-bold mb-2">6. Transition Effect</h2>
+            <button class="transition-button">Hover Over Me</button>
+            <p class="mt-2 text-gray-600">The button's background color smoothly changes from blue to green over 0.5 seconds.</p>
+        </section>
+
+        <!-- 7. Absolute vs Relative Positioning -->
+        <section>
+            <h2 class="text-2xl font-bold mb-2">7. Absolute vs Relative Positioning</h2>
+            <p class="mb-2">The light red box is <code>position: absolute</code> inside the dashed gray container, which is <code>position: relative</code>. This "absolute" box is positioned relative to its parent container.</p>
+            <div class="relative-container">
+                <div class="absolute-child">Absolute Child (20px from top/left)</div>
+            </div>
+            <div class="standard-div">This is a standard div in the normal document flow.</div>
+        </section>
+
+        <!-- 8. Using Different CSS Units -->
+        <section>
+            <h2 class="text-2xl font-bold mb-2">8. CSS Units (px, em, rem)</h2>
+            <p class="mb-2">Note how <code>em</code> scales with its parent, while <code>rem</code> scales with the root (html) element, and <code>px</code> stays fixed.</p>
+            
+            <div class="units-container">
+                <strong>Parent 1 (font-size: 16px)</strong>
+                <p class="px-text">This text is 16px.</p>
+                <p class="em-text">This text is 1.2em (1.2 * 16px = 19.2px).</p>
+                <p class="rem-text">This text is 1.2rem (1.2 * 16px = 19.2px, assuming root font-size is 16px).</p>
+            </div>
+
+            <div class="units-container-large">
+                <strong>Parent 2 (font-size: 24px)</strong>
+                <p class="px-text">This text is 16px.</p>
+                <p class="em-text">This text is 1.2em (1.2 * 24px = 28.8px).</p>
+                <p class="rem-text">This text is 1.2rem (1.2 * 16px = 19.2px, it ignores the parent's 24px).</p>
+            </div>
+        </section>
+
+        <!-- 9. Grid or Flex Layout -->
+        <section>
+            <h2 class="text-2xl font-bold mb-2">9. Two-Column Flexbox Layout</h2>
+            <div class="flex-container">
+                <div class="flex-column">
+                    <h3>Column 1</h3>
+                    <p>This is the first column. The <code>flex: 1</code> property tells it to take up an equal share of the available space.</p>
+                </div>
+                <div class="flex-column">
+                    <h3>Column 2</h3>
+                    <p>This is the second column. It also has <code>flex: 1</code>, so it's the same width as the first column.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 10. Color Formats -->
+        <section>
+            <h2 class="text-2xl font-bold mb-2">10. Color Formats</h2>
+            <p class="color-rgb font-bold">This text is styled with rgb(255, 0, 0).</p>
+            <p class="color-hex font-bold">This text is styled with #00ff00.</p>
+            <p class="color-hsl font-bold">This text is styled with hsl(240, 100%, 50%).</p>
+        </section>
+
+    </div>
+
+</body>
+</html>
